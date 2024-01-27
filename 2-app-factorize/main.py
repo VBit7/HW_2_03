@@ -4,6 +4,15 @@ from multiprocessing import Pool, cpu_count
 
 
 def factorize(numbers: list) -> list:
+    """
+    Factorize a list of numbers and return a list of lists containing their factors.
+
+    Args:
+        numbers (list): List of integers to be factorized.
+
+    Returns:
+        list: A list of lists where each inner list contains the factors of the corresponding number in the input list.
+    """
     result_list = []
     for el in numbers:
         tmp_list = []
@@ -15,6 +24,15 @@ def factorize(numbers: list) -> list:
 
 
 def factorize_multi(number: int) -> list:
+    """
+    Factorize a single number and return a list of its factors.
+
+    Args:
+        number (int): The integer to be factorized.
+
+    Returns:
+        list: A list of integers representing the factors of the input number.
+    """
     result_list = []
     for num in range(1, number + 1):
         if number % num == 0:

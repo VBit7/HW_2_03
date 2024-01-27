@@ -5,6 +5,16 @@ from concurrent.futures import ThreadPoolExecutor
 
 
 def process_files(directory, file_list):
+    """
+    Process the list of files by moving them to a categorized directory structure.
+
+    Args:
+        directory (str): The base directory containing the files.
+        file_list (list): List of pathlib.Path objects representing files to be processed.
+
+    Returns:
+        int: Return code. -1 on success, 1 for FileNotFoundError, 2 for FileExistsError, 3 for PermissionError.
+    """
     destination_base_dir = Path(directory) / 'processed_files'
 
     try:
@@ -34,6 +44,11 @@ def process_files(directory, file_list):
 
 
 def main():
+    """
+    Process files in the specified folder using multiple threads.
+
+    Example usage: python main.py C:\\path\\to\\directory
+    """
     if len(sys.argv) != 2:
         print('Please provide a folder path as a command-line argument.')
         print('Example usage: python main.py C:\\path\\to\\directory')
